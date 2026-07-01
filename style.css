@@ -22,9 +22,16 @@ body{
     border: 2px solid #333;
 }
 
-.grid-box{
-    width: 6.25%;
-    height: 6.25%;
-    box-sizing: border-box; 
-    border: 1px solid #ddd;
+
+button{
+    font-size: 25px;
+    border-radius: 12%;
+    background-color: lightcyan;
+    padding: 8px;
+    margin-bottom: 40px;
+}
+
+button:hover{
+    background-color: lightblue;
+    font-size: 30px;
 }
