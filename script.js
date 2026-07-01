@@ -14,11 +14,24 @@ function gridCreation(size)
 
         box.style.width = `${boxPercentage}%`;
         box.style.height = `${boxPercentage}%`;
-        box.style.boxSizing = 'border-box';
-        box.style.border = '1px solid black';
+        
+        box.dataset.interactions = "0";
 
         box.addEventListener("mouseenter", (e) =>{
-        e.target.style.backgroundColor = '#b4e1ff';
+        const currentBox = e.target;
+        let interactions = parseInt(currentBox.dataset.interactions);
+
+        if (interactions === 0) {
+            const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+            currentBox.style.backgroundColor = randomColor;
+        }
+
+        if (interactions < 10) {
+            interactions++;
+            currentBox.dataset.interactions = interactions;
+        }
+        const currentBrightness = 100 - (interactions * 10);
+        currentBox.style.filter = `brightness(${currentBrightness}%)`;
     });
     container.appendChild(box);
     }
